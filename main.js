@@ -63,32 +63,53 @@ function lastTo50() {
 function randomTo100() {
   // Set the grade of a random student to 100.
   outputEl.innerHTML = "Random grade to 100";
-  grades[(Math.random() * grades.length())] = 100;
+  grades[Math.floor(Math.random() * grades.length)] = 100;
 }
 
 function addRandomGrade() {
   // Add a random grade between 0 and 100 to the end of the array.
   outputEl.innerHTML = "Add random grade";
+  grades.push(Math.floor(Math.random() * 100));
 }
 
 function removeLastGrade() {
   // Remove the last grade.
   outputEl.innerHTML = "Remove the last grade";
+  grades.pop();
 }
 
 function countBelow50() {
   // Count how many grades are below 50.  Output the result.
   outputEl.innerHTML = "Count grades below 50";
+  let numberBelow50 = 0; 
+  grades.forEach(element => {
+    if (element <= 50) {
+      numberBelow50++;
+    }
+  });
+  outputEl.innerHTML = `Count grades below 50 = ${numberBelow50}`;
 }
 
 function lowGradesTo50() {
   // Change all grades that are below 50 to be equal to 50.
   outputEl.innerHTML = "Change low grades to 50";
+  let rotations = 0; 
+  grades.forEach(element => {
+    if (element < 50) {
+      grades[rotations] = 50;
+    }
+    rotations++;
+  });
 }
 
 function increaseGradesBy10() {
   // Increase each grade by 10%.
   outputEl.innerHTML = "Increase all grades by 10%";
+  let rotations = 0; 
+  grades.forEach(element => {
+    grades
+    rotations++;
+  });
 }
 
 function decreaseGradesBy10() {
