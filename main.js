@@ -107,7 +107,10 @@ function increaseGradesBy10() {
   outputEl.innerHTML = "Increase all grades by 10%";
   let rotations = 0; 
   grades.forEach(element => {
-    grades
+    grades[rotations] = grades[rotations] + 10
+    if(grades[rotations] > 100){
+      grades[rotations] = 100;
+    }
     rotations++;
   });
 }
@@ -115,6 +118,14 @@ function increaseGradesBy10() {
 function decreaseGradesBy10() {
   // Decrease each grade by 10%.
   outputEl.innerHTML = "Decrease all grades by 10%";
+  let rotations = 0; 
+  grades.forEach(element => {
+    grades[rotations] = grades[rotations] - 10
+    if(grades[rotations] < 0){
+      grades[rotations] = 0;
+    }
+    rotations++;
+  });
 }
 
 
