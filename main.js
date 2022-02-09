@@ -5,6 +5,10 @@ let containerEl = document.getElementById("container");
 let outputEl = document.getElementById("output");
 let goBtnEl = document.getElementById("go");
 let menuEl = document.getElementById("menu");
+let clearBtn = document.getElementById("clear");
+let manualEntryBtn = document.getElementById("manualInputBtn");
+let manualInput = document.getElementById("manualInput");
+let input = document.getElementsByName('manualInput')[0]
 
 // Global Variable
 let grades = [60, 70, 80, 65, 90, 83];
@@ -15,6 +19,26 @@ drawArray();
 
 // Main Menu & Go Button
 goBtnEl.addEventListener("click", mainMenu);
+clearBtn.addEventListener("click", clear);
+manualEntryBtn.addEventListener("click", manualEntry)
+
+function clear() {
+  grades = [];
+  drawArray();
+}
+
+function manualEntry(){
+  if(manualInput.value > 100){
+    grades.push(100);
+  } else {
+    grades.push(manualInput.value);
+  }
+  console.log(grades)
+  let number = grades.length;
+  input.placeholder=`Grade #${number}`;
+  drawArray();
+  document.getElementById('manualInput').value = '';
+};
 
 function mainMenu() {
   // Get value of menu select element

@@ -13,14 +13,14 @@ body {
   min-height: 90vh;
 }
 
-#go {
+.btn{
   background-color: #09457e;
   color: white;
   padding: 2px 10px;
   font-size: 18px;
 }
 
-#menu {
+#menu + #manualInput{
   font-size: 18px;
   padding: 2px 10px;
 }
