@@ -28,10 +28,10 @@ function clear() {
 }
 
 function manualEntry(){
-  if(manualInput.value > 100){
+  if(+manualInput.value > 100){
     grades.push(100);
   } else {
-    grades.push(manualInput.value);
+    grades.push(+manualInput.value);
   }
   console.log(grades)
   let number = grades.length;
