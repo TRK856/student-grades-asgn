@@ -30,12 +30,12 @@ function clear() {
 function manualEntry(){
   if(+manualInput.value > 100){
     grades.push(100);
+  } if (+manualInput.value < 0){
+    input.placeholder=`ERROR - INVALID INPUT`;
   } else {
     grades.push(+manualInput.value);
+    input.placeholder=`Grade #${(grades.length+1)}`;
   }
-  console.log(grades)
-  let number = grades.length;
-  input.placeholder=`Grade #${number}`;
   drawArray();
   document.getElementById('manualInput').value = '';
 };
@@ -81,7 +81,7 @@ function firstTo40() {
 function lastTo50() {
   // Set the grade of the last student to 50.
   outputEl.innerHTML = "Last grade to 50";
-  grades[5] = 50;
+  grades[(grades.length)] = 50;
 }
 
 function randomTo100() {
@@ -106,50 +106,47 @@ function countBelow50() {
   // Count how many grades are below 50.  Output the result.
   outputEl.innerHTML = "Count grades below 50";
   let numberBelow50 = 0; 
-  grades.forEach(element => {
-    if (element <= 50) {
+  for (let i = 0; i < grades.length; i++) {
+    if(grades[i] < 50){ 
       numberBelow50++;
     }
-  });
+  }
   outputEl.innerHTML = `Count grades below 50 = ${numberBelow50}`;
 }
 
 function lowGradesTo50() {
   // Change all grades that are below 50 to be equal to 50.
   outputEl.innerHTML = "Change low grades to 50";
-  let rotations = 0; 
-  grades.forEach(element => {
-    if (element < 50) {
-      grades[rotations] = 50;
+  for (let i = 0; i < grades.length; i++) {
+    if(grades[i] < 50){
+      grades[i] = 50;
+      console.log(i);
     }
-    rotations++;
-  });
+  } 
 }
 
 function increaseGradesBy10() {
   // Increase each grade by 10%.
   outputEl.innerHTML = "Increase all grades by 10%";
-  let rotations = 0; 
-  grades.forEach(element => {
-    grades[rotations] = grades[rotations] + 10
-    if(grades[rotations] > 100){
-      grades[rotations] = 100;
+  for (let i = 0; i < grades.length; i++) {
+    grades[i] = grades[i] + 10
+    if(grades[i] > 100){
+      grades[i] = 100;
     }
-    rotations++;
-  });
+  }
 }
 
 function decreaseGradesBy10() {
   // Decrease each grade by 10%.
   outputEl.innerHTML = "Decrease all grades by 10%";
   let rotations = 0; 
-  grades.forEach(element => {
-    grades[rotations] = grades[rotations] - 10
-    if(grades[rotations] < 0){
-      grades[rotations] = 0;
+  
+  for (let i = 0; i < grades.length; i++) {
+    grades[i] = grades[i] - 10;
+    if(grades[i] < 0){
+      grades[i] = 0;
     }
-    rotations++;
-  });
+  }
 }
 
 
